@@ -44,15 +44,12 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: ${{ matrix.targets }}
+        TNAME: MI-R3G
         KERNEL: 4.4
-    strategy:
-      matrix:
-        include:
-          - build_variant: "mt7621"
-            targets: "K2P_nano K2P CR660x"
-          - build_variant: "mt7621-usb"
-            targets: MI-R3G"
+        #  - build_variant: "mt7621"
+        #    targets: "K2P_nano K2P CR660x"
+        #  - build_variant: "mt7621-usb"
+        #   targets: MI-R3G"
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
